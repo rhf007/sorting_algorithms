@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * quick_sort - sort an array using quick sort]
+ * quick_sort - wrapper function tosort an array using quick sort
  * @array: array to be sorted
  * @size: array size
  */
@@ -15,9 +15,16 @@ void quick_sort(int *array, size_t size)
 	my_actual_qs(array, 0, size - 1, size);
 }
 
-void my_actual_qs(int *array, size_t low, size_t high, size_t length)
+/**
+ * my_actual_qs - the function that does all the sorting (not really hehe)
+ * @array: array to be sorted
+ * @low: lower bound of the array
+ * @high: higher bound of the array
+ * @length: array length
+ */
+void my_actual_qs(int *array, int low, int high, size_t length)
 {
-	size_t pvt_idx;
+	int pvt_idx;
 
 	if (low < high)
 	{
@@ -27,10 +34,17 @@ void my_actual_qs(int *array, size_t low, size_t high, size_t length)
 	}
 }
 
-size_t partition(int *array, size_t low, size_t high, size_t length)
+/**
+ * partition - partition and sort array, for real
+ * @array: array to be partitioned and sorted for real
+ * @low: lower bound of the array
+ * @high: higher bound of the array
+ * @length: array length
+ * Return: index of our pivot
+ */
+int partition(int *array, int low, int high, size_t length)
 {
-	size_t i, j;
-	int tmp, pvt_val = array[high];
+	int i, j, tmp, pvt_val = array[high];
 
 	i = low;
 
